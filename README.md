@@ -339,7 +339,7 @@ The authors are not responsible for any misuse of this tool or any damages resul
 ## 🗺️ Roadmap
 
 ### Upcoming Features
-- [*] -- **Enhanced Control Coverage**: Additional NIST SP 800-171 controls --
+- [x] **Enhanced Control Coverage**: Additional NIST SP 800-171 controls 
 - [ ] **Database Integration**: PostgreSQL/MySQL support for result storage
 - [ ] **REST API**: Web API for integration with other tools
 - [ ] **Docker Support**: Containerized deployment options
@@ -352,6 +352,7 @@ The authors are not responsible for any misuse of this tool or any damages resul
 - **v1.0.0**: Initial release with basic scanning and reporting
 - **v1.1.0**: Added network topology visualization
 - **v1.2.0**: Enhanced Windows compatibility and error handling
+- **v1.2.1**: All NIST SP 800-171 R2 controls added
 
 ---
 
