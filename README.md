@@ -339,7 +339,7 @@ The authors are not responsible for any misuse of this tool or any damages resul
 ## 🗺️ Roadmap
 
 ### Upcoming Features
-- [ ] **Enhanced Control Coverage**: Additional NIST SP 800-171 controls
+- [*] -- **Enhanced Control Coverage**: Additional NIST SP 800-171 controls --
 - [ ] **Database Integration**: PostgreSQL/MySQL support for result storage
 - [ ] **REST API**: Web API for integration with other tools
 - [ ] **Docker Support**: Containerized deployment options
