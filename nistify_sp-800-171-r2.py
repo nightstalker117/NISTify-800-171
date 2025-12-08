@@ -129,24 +129,580 @@ class NIST80171Controls:
     
     CONTROLS = {
         "3.1.1": {
-            "name": "Access Control Policy and Procedures",
-            "text": "Establish and maintain baseline configurations and inventories of organizational systems.",
-            "family": "AC"
-        },
-        "3.1.2": {
-            "name": "Account Management",
-            "text": "Limit system access to authorized users, processes acting on behalf of authorized users, and devices.",
-            "family": "AC"
-        },
-        "3.4.7": {
-            "name": "Nonessential Programs",
-            "text": "Restrict, disable, or prevent the use of nonessential programs, functions, ports, protocols, and services.",
-            "family": "CM"
-        },
-        "3.13.1": {
-            "name": "Boundary Protection",
-            "text": "Monitor, control, and protect organizational communications at external and internal boundaries.",
-            "family": "SC"
+        "name": "Access Control Policy and Procedures",
+        "text": "Limit system access to authorized users, processes acting on behalf of authorized users, and devices (including other systems).",
+        "family": "AC"
+    },
+    "3.1.2": {
+        "name": "Transaction and Function Control",
+        "text": "Limit system access to the types of transactions and functions that authorized users are permitted to execute.",
+        "family": "AC"
+    },
+    "3.1.3": {
+        "name": "External Connections",
+        "text": "Control the flow of CUI in accordance with approved authorizations.",
+        "family": "AC"
+    },
+    "3.1.4": {
+        "name": "Separation of Duties",
+        "text": "Separate the duties of individuals to reduce the risk of malevolent activity without collusion.",
+        "family": "AC"
+    },
+    "3.1.5": {
+        "name": "Least Privilege",
+        "text": "Employ the principle of least privilege, including for specific security functions and privileged accounts.",
+        "family": "AC"
+    },
+    "3.1.6": {
+        "name": "Non-Privileged Account Use",
+        "text": "Use non-privileged accounts or roles when accessing nonsecurity functions.",
+        "family": "AC"
+    },
+    "3.1.7": {
+        "name": "Privileged Functions",
+        "text": "Prevent non-privileged users from executing privileged functions and capture the execution of such functions in audit logs.",
+        "family": "AC"
+    },
+    "3.1.8": {
+        "name": "Unsuccessful Logon Attempts",
+        "text": "Limit unsuccessful logon attempts.",
+        "family": "AC"
+    },
+    "3.1.9": {
+        "name": "Privacy and Security Notices",
+        "text": "Provide privacy and security notices consistent with applicable CUI rules.",
+        "family": "AC"
+    },
+    "3.1.10": {
+        "name": "Session Lock",
+        "text": "Use session lock with pattern-hiding displays to prevent access and viewing of data after a period of inactivity.",
+        "family": "AC"
+    },
+    "3.1.11": {
+        "name": "Session Termination",
+        "text": "Terminate (automatically) a user session after a defined condition.",
+        "family": "AC"
+    },
+    "3.1.12": {
+        "name": "Control Remote Access",
+        "text": "Monitor and control remote access sessions.",
+        "family": "AC"
+    },
+    "3.1.13": {
+        "name": "Remote Access Confidentiality",
+        "text": "Employ cryptographic mechanisms to protect the confidentiality of remote access sessions.",
+        "family": "AC"
+    },
+    "3.1.14": {
+        "name": "Remote Access Routing",
+        "text": "Route remote access via managed access control points.",
+        "family": "AC"
+    },
+    "3.1.15": {
+        "name": "Privileged Remote Access",
+        "text": "Authorize remote execution of privileged commands and remote access to security-relevant information.",
+        "family": "AC"
+    },
+    "3.1.16": {
+        "name": "Wireless Access Authorization",
+        "text": "Authorize wireless access prior to allowing such connections.",
+        "family": "AC"
+    },
+    "3.1.17": {
+        "name": "Wireless Access Protection",
+        "text": "Protect wireless access using authentication and encryption.",
+        "family": "AC"
+    },
+    "3.1.18": {
+        "name": "Mobile Device Connection",
+        "text": "Control connection of mobile devices.",
+        "family": "AC"
+    },
+    "3.1.19": {
+        "name": "Encrypt CUI on Mobile",
+        "text": "Encrypt CUI on mobile devices and mobile computing platforms.",
+        "family": "AC"
+    },
+    "3.1.20": {
+        "name": "External System Use",
+        "text": "Verify and control/limit connections to and use of external systems.",
+        "family": "AC"
+    },
+    "3.1.21": {
+        "name": "Portable Storage Device Use",
+        "text": "Limit use of portable storage devices on external systems.",
+        "family": "AC"
+    },
+    "3.1.22": {
+        "name": "Publicly Accessible System Content",
+        "text": "Control CUI posted or processed on publicly accessible systems.",
+        "family": "AC"
+    },
+    
+    # 3.2 AWARENESS AND TRAINING (AT)
+    "3.2.1": {
+        "name": "Security Awareness",
+        "text": "Ensure that managers, systems administrators, and users of organizational systems are made aware of the security risks associated with their activities and of the applicable policies, standards, and procedures related to the security of those systems.",
+        "family": "AT"
+    },
+    "3.2.2": {
+        "name": "Insider Threat Awareness",
+        "text": "Ensure that personnel are trained to carry out their assigned information security-related duties and responsibilities.",
+        "family": "AT"
+    },
+    "3.2.3": {
+        "name": "Security Training",
+        "text": "Provide security awareness training on recognizing and reporting potential indicators of insider threat.",
+        "family": "AT"
+    },
+    
+    # 3.3 AUDIT AND ACCOUNTABILITY (AU)
+    "3.3.1": {
+        "name": "System Audit Records",
+        "text": "Create and retain system audit logs and records to the extent needed to enable the monitoring, analysis, investigation, and reporting of unlawful or unauthorized system activity.",
+        "family": "AU"
+    },
+    "3.3.2": {
+        "name": "Audit Record Content",
+        "text": "Ensure that the actions of individual system users can be uniquely traced to those users so they can be held accountable for their actions.",
+        "family": "AU"
+    },
+    "3.3.3": {
+        "name": "Audit Record Review",
+        "text": "Review and update logged events.",
+        "family": "AU"
+    },
+    "3.3.4": {
+        "name": "Audit Failure Response",
+        "text": "Alert in the event of an audit logging process failure.",
+        "family": "AU"
+    },
+    "3.3.5": {
+        "name": "Audit Correlation",
+        "text": "Correlate audit record review, analysis, and reporting processes for investigation and response to indications of unlawful, unauthorized, suspicious, or unusual activity.",
+        "family": "AU"
+    },
+    "3.3.6": {
+        "name": "Audit Reduction",
+        "text": "Provide audit record reduction and report generation to support on-demand analysis and reporting.",
+        "family": "AU"
+    },
+    "3.3.7": {
+        "name": "Audit Monitoring",
+        "text": "Provide a system capability that compares and synchronizes internal system clocks with an authoritative source to generate time stamps for audit records.",
+        "family": "AU"
+    },
+    "3.3.8": {
+        "name": "Audit Record Protection",
+        "text": "Protect audit information and audit logging tools from unauthorized access, modification, and deletion.",
+        "family": "AU"
+    },
+    "3.3.9": {
+        "name": "Audit Management",
+        "text": "Limit management of audit logging functionality to a subset of privileged users.",
+        "family": "AU"
+    },
+    
+    # 3.4 CONFIGURATION MANAGEMENT (CM)
+    "3.4.1": {
+        "name": "Baseline Configuration",
+        "text": "Establish and maintain baseline configurations and inventories of organizational systems (including hardware, software, firmware, and documentation) throughout the respective system development life cycles.",
+        "family": "CM"
+    },
+    "3.4.2": {
+        "name": "Security Configuration Settings",
+        "text": "Establish and enforce security configuration settings for information technology products employed in organizational systems.",
+        "family": "CM"
+    },
+    "3.4.3": {
+        "name": "Configuration Change Control",
+        "text": "Track, review, approve or disapprove, and log changes to organizational systems.",
+        "family": "CM"
+    },
+    "3.4.4": {
+        "name": "Security Impact Analysis",
+        "text": "Analyze the security impact of changes prior to implementation.",
+        "family": "CM"
+    },
+    "3.4.5": {
+        "name": "Access Restrictions",
+        "text": "Define, document, approve, and enforce physical and logical access restrictions associated with changes to organizational systems.",
+        "family": "CM"
+    },
+    "3.4.6": {
+        "name": "Least Functionality",
+        "text": "Employ the principle of least functionality by configuring organizational systems to provide only essential capabilities.",
+        "family": "CM"
+    },
+    "3.4.7": {
+        "name": "Nonessential Functionality",
+        "text": "Restrict, disable, or prevent the use of nonessential programs, functions, ports, protocols, and services.",
+        "family": "CM"
+    },
+    "3.4.8": {
+        "name": "Application Execution Policy",
+        "text": "Apply deny-by-exception (blacklisting) policy to prevent the use of unauthorized software or deny-all, permit-by-exception (whitelisting) policy to allow the execution of authorized software.",
+        "family": "CM"
+    },
+    "3.4.9": {
+        "name": "User-Installed Software",
+        "text": "Control and monitor user-installed software.",
+        "family": "CM"
+    },
+    
+    # 3.5 IDENTIFICATION AND AUTHENTICATION (IA)
+    "3.5.1": {
+        "name": "User Identification",
+        "text": "Identify system users, processes acting on behalf of users, and devices.",
+        "family": "IA"
+    },
+    "3.5.2": {
+        "name": "User Authentication",
+        "text": "Authenticate (or verify) the identities of users, processes, or devices, as a prerequisite to allowing access to organizational systems.",
+        "family": "IA"
+    },
+    "3.5.3": {
+        "name": "Multifactor Authentication",
+        "text": "Use multifactor authentication for local and network access to privileged accounts and for network access to non-privileged accounts.",
+        "family": "IA"
+    },
+    "3.5.4": {
+        "name": "Replay-Resistant Authentication",
+        "text": "Employ replay-resistant authentication mechanisms for network access to privileged and non-privileged accounts.",
+        "family": "IA"
+    },
+    "3.5.5": {
+        "name": "Identifier Management",
+        "text": "Prevent reuse of identifiers for a defined period.",
+        "family": "IA"
+    },
+    "3.5.6": {
+        "name": "Authenticator Management",
+        "text": "Disable identifiers after a defined period of inactivity.",
+        "family": "IA"
+    },
+    "3.5.7": {
+        "name": "Password Complexity",
+        "text": "Enforce a minimum password complexity and change of characters when new passwords are created.",
+        "family": "IA"
+    },
+    "3.5.8": {
+        "name": "Password Reuse",
+        "text": "Prohibit password reuse for a specified number of generations.",
+        "family": "IA"
+    },
+    "3.5.9": {
+        "name": "Temporary Password",
+        "text": "Allow temporary password use for system logons with an immediate change to a permanent password.",
+        "family": "IA"
+    },
+    "3.5.10": {
+        "name": "Cryptographic Authentication",
+        "text": "Store and transmit only cryptographically-protected passwords.",
+        "family": "IA"
+    },
+    "3.5.11": {
+        "name": "Obscure Feedback",
+        "text": "Obscure feedback of authentication information.",
+        "family": "IA"
+    },
+    
+    # 3.6 INCIDENT RESPONSE (IR)
+    "3.6.1": {
+        "name": "Incident Response Plan",
+        "text": "Establish an operational incident-handling capability for organizational systems that includes preparation, detection, analysis, containment, recovery, and user response activities.",
+        "family": "IR"
+    },
+    "3.6.2": {
+        "name": "Incident Tracking",
+        "text": "Track, document, and report incidents to designated officials and/or authorities both internal and external to the organization.",
+        "family": "IR"
+    },
+    "3.6.3": {
+        "name": "Incident Testing",
+        "text": "Test the organizational incident response capability.",
+        "family": "IR"
+    },
+    
+    # 3.7 MAINTENANCE (MA)
+    "3.7.1": {
+        "name": "Maintenance Policy",
+        "text": "Perform maintenance on organizational systems.",
+        "family": "MA"
+    },
+    "3.7.2": {
+        "name": "Controlled Maintenance",
+        "text": "Provide controls on the tools, techniques, mechanisms, and personnel used to conduct system maintenance.",
+        "family": "MA"
+    },
+    "3.7.3": {
+        "name": "Maintenance Tools",
+        "text": "Ensure equipment removed for off-site maintenance is sanitized of any CUI.",
+        "family": "MA"
+    },
+    "3.7.4": {
+        "name": "Nonlocal Maintenance",
+        "text": "Check media containing diagnostic and test programs for malicious code before the media are used in organizational systems.",
+        "family": "MA"
+    },
+    "3.7.5": {
+        "name": "Maintenance Personnel",
+        "text": "Require multifactor authentication to establish nonlocal maintenance sessions via external network connections and terminate such connections when nonlocal maintenance is complete.",
+        "family": "MA"
+    },
+    "3.7.6": {
+        "name": "Maintenance Supervision",
+        "text": "Supervise the maintenance activities of maintenance personnel without required access authorization.",
+        "family": "MA"
+    },
+    
+    # 3.8 MEDIA PROTECTION (MP)
+    "3.8.1": {
+        "name": "Media Access",
+        "text": "Protect (i.e., physically control and securely store) system media containing CUI, both paper and digital.",
+        "family": "MP"
+    },
+    "3.8.2": {
+        "name": "Media Disposal",
+        "text": "Limit access to CUI on system media to authorized users.",
+        "family": "MP"
+    },
+    "3.8.3": {
+        "name": "Media Sanitization",
+        "text": "Sanitize or destroy system media containing CUI before disposal or release for reuse.",
+        "family": "MP"
+    },
+    "3.8.4": {
+        "name": "Media Marking",
+        "text": "Mark media with necessary CUI markings and distribution limitations.",
+        "family": "MP"
+    },
+    "3.8.5": {
+        "name": "Media Transport",
+        "text": "Control access to media containing CUI and maintain accountability for media during transport outside of controlled areas.",
+        "family": "MP"
+    },
+    "3.8.6": {
+        "name": "Cryptographic Protection",
+        "text": "Implement cryptographic mechanisms to protect the confidentiality of CUI stored on digital media during transport unless otherwise protected by alternative physical safeguards.",
+        "family": "MP"
+    },
+    "3.8.7": {
+        "name": "Portable Storage",
+        "text": "Control the use of removable media on system components.",
+        "family": "MP"
+    },
+    "3.8.8": {
+        "name": "Media Downgrading",
+        "text": "Prohibit the use of portable storage devices when such devices have no identifiable owner.",
+        "family": "MP"
+    },
+    "3.8.9": {
+        "name": "Media Protection",
+        "text": "Protect the confidentiality of backup CUI at storage locations.",
+        "family": "MP"
+    },
+    
+    # 3.9 PERSONNEL SECURITY (PS)
+    "3.9.1": {
+        "name": "Personnel Screening",
+        "text": "Screen individuals prior to authorizing access to organizational systems containing CUI.",
+        "family": "PS"
+    },
+    "3.9.2": {
+        "name": "Personnel Termination",
+        "text": "Ensure that organizational systems containing CUI are protected during and after personnel actions such as terminations and transfers.",
+        "family": "PS"
+    },
+    
+    # 3.10 PHYSICAL PROTECTION (PE)
+    "3.10.1": {
+        "name": "Physical Access Authorizations",
+        "text": "Limit physical access to organizational systems, equipment, and the respective operating environments to authorized individuals.",
+        "family": "PE"
+    },
+    "3.10.2": {
+        "name": "Physical Access Controls",
+        "text": "Protect and monitor the physical facility and support infrastructure for organizational systems.",
+        "family": "PE"
+    },
+    "3.10.3": {
+        "name": "Escort Visitors",
+        "text": "Escort visitors and monitor visitor activity.",
+        "family": "PE"
+    },
+    "3.10.4": {
+        "name": "Physical Access Logs",
+        "text": "Maintain audit logs of physical access.",
+        "family": "PE"
+    },
+    "3.10.5": {
+        "name": "Physical Access Devices",
+        "text": "Control and manage physical access devices.",
+        "family": "PE"
+    },
+    "3.10.6": {
+        "name": "Monitoring Physical Access",
+        "text": "Enforce safeguarding measures for CUI at alternate work sites.",
+        "family": "PE"
+    },
+    
+    # 3.11 RISK ASSESSMENT (RA)
+    "3.11.1": {
+        "name": "Risk Assessment",
+        "text": "Periodically assess the risk to organizational operations (including mission, functions, image, or reputation), organizational assets, and individuals, resulting from the operation of organizational systems and the associated processing, storage, or transmission of CUI.",
+        "family": "RA"
+    },
+    "3.11.2": {
+        "name": "Vulnerability Scanning",
+        "text": "Scan for vulnerabilities in organizational systems and applications periodically and when new vulnerabilities affecting those systems and applications are identified.",
+        "family": "RA"
+    },
+    "3.11.3": {
+        "name": "Remediation",
+        "text": "Remediate vulnerabilities in accordance with risk assessments.",
+        "family": "RA"
+    },
+    
+    # 3.12 SECURITY ASSESSMENT (CA)
+    "3.12.1": {
+        "name": "Security Assessments",
+        "text": "Periodically assess the security controls in organizational systems to determine if the controls are effective in their application.",
+        "family": "CA"
+    },
+    "3.12.2": {
+        "name": "Plans of Action",
+        "text": "Develop and implement plans of action designed to correct deficiencies and reduce or eliminate vulnerabilities in organizational systems.",
+        "family": "CA"
+    },
+    "3.12.3": {
+        "name": "System Interconnections",
+        "text": "Monitor security controls on an ongoing basis to ensure the continued effectiveness of the controls.",
+        "family": "CA"
+    },
+    "3.12.4": {
+        "name": "Security Control Testing",
+        "text": "Develop, document, and periodically update system security plans that describe system boundaries, system environments of operation, how security requirements are implemented, and the relationships with or connections to other systems.",
+        "family": "CA"
+    },
+    
+    # 3.13 SYSTEM AND COMMUNICATIONS PROTECTION (SC)
+    "3.13.1": {
+        "name": "Boundary Protection",
+        "text": "Monitor, control, and protect communications (i.e., information transmitted or received by organizational systems) at the external boundaries and key internal boundaries of organizational systems.",
+        "family": "SC"
+    },
+    "3.13.2": {
+        "name": "Application Partitioning",
+        "text": "Employ architectural designs, software development techniques, and systems engineering principles that promote effective information security within organizational systems.",
+        "family": "SC"
+    },
+    "3.13.3": {
+        "name": "Security Function Isolation",
+        "text": "Separate user functionality from system management functionality.",
+        "family": "SC"
+    },
+    "3.13.4": {
+        "name": "Information in Shared Resources",
+        "text": "Prevent unauthorized and unintended information transfer via shared system resources.",
+        "family": "SC"
+    },
+    "3.13.5": {
+        "name": "Denial of Service Protection",
+        "text": "Implement subnetworks for publicly accessible system components that are physically or logically separated from internal networks.",
+        "family": "SC"
+    },
+    "3.13.6": {
+        "name": "Network Segmentation",
+        "text": "Deny network communications traffic by default and allow network communications traffic by exception (i.e., deny all, permit by exception).",
+        "family": "SC"
+    },
+    "3.13.7": {
+        "name": "Split Tunneling",
+        "text": "Prevent remote devices from simultaneously establishing non-remote connections with organizational systems and communicating via some other connection to resources in external networks (i.e., split tunneling).",
+        "family": "SC"
+    },
+    "3.13.8": {
+        "name": "Cryptographic Protection",
+        "text": "Implement cryptographic mechanisms to prevent unauthorized disclosure of CUI during transmission unless otherwise protected by alternative physical safeguards.",
+        "family": "SC"
+    },
+    "3.13.9": {
+        "name": "Session Termination",
+        "text": "Terminate network connections associated with communications sessions at the end of the sessions or after a defined period of inactivity.",
+        "family": "SC"
+    },
+    "3.13.10": {
+        "name": "Cryptographic Key Management",
+        "text": "Establish and manage cryptographic keys for cryptography employed in organizational systems.",
+        "family": "SC"
+    },
+    "3.13.11": {
+        "name": "CUI Confidentiality",
+        "text": "Employ FIPS-validated cryptography when used to protect the confidentiality of CUI.",
+        "family": "SC"
+    },
+    "3.13.12": {
+        "name": "Collaborative Computing Devices",
+        "text": "Prohibit remote activation of collaborative computing devices and provide indication of devices in use to users present at the device.",
+        "family": "SC"
+    },
+    "3.13.13": {
+        "name": "Mobile Code",
+        "text": "Control and monitor the use of mobile code.",
+        "family": "SC"
+    },
+    "3.13.14": {
+        "name": "Voice over Internet Protocol",
+        "text": "Control and monitor the use of Voice over Internet Protocol (VoIP) technologies.",
+        "family": "SC"
+    },
+    "3.13.15": {
+        "name": "Authenticity Protection",
+        "text": "Protect the authenticity of communications sessions.",
+        "family": "SC"
+    },
+    "3.13.16": {
+        "name": "Transmission Confidentiality",
+        "text": "Protect the confidentiality of CUI at rest.",
+        "family": "SC"
+    },
+    
+    # 3.14 SYSTEM AND INFORMATION INTEGRITY (SI)
+    "3.14.1": {
+        "name": "Flaw Remediation",
+        "text": "Identify, report, and correct system flaws in a timely manner.",
+        "family": "SI"
+    },
+    "3.14.2": {
+        "name": "Malicious Code Protection",
+        "text": "Provide protection from malicious code at designated locations within organizational systems.",
+        "family": "SI"
+    },
+    "3.14.3": {
+        "name": "Security Alerts and Advisories",
+        "text": "Monitor system security alerts and advisories and take action in response.",
+        "family": "SI"
+    },
+    "3.14.4": {
+        "name": "Software and Firmware Integrity",
+        "text": "Update malicious code protection mechanisms when new releases are available.",
+        "family": "SI"
+    },
+    "3.14.5": {
+        "name": "Spam Protection",
+        "text": "Perform periodic scans of organizational systems and real-time scans of files from external sources as files are downloaded, opened, or executed.",
+        "family": "SI"
+    },
+    "3.14.6": {
+        "name": "Information Handling and Retention",
+        "text": "Monitor organizational systems, including inbound and outbound communications traffic, to detect attacks and indicators of potential attacks.",
+        "family": "SI"
+    },
+    "3.14.7": {
+        "name": "Information System Monitoring",
+        "text": "Identify unauthorized use of organizational systems.",
+        "family": "SI"
         }
     }
 
