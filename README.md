@@ -48,8 +48,8 @@ pip install -r requirements.txt
 ## Installation
 
 ```bash
-git clone https://github.com/nightstalker/nistify800-171.git
-cd nistify800-171
+git clone https://github.com/nightstalker117/nistify-800-171.git
+cd nistify-800-171
 pip install -r requirements.txt
 ```
 
